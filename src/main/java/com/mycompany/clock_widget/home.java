@@ -9,6 +9,7 @@
 package com.mycompany.clock_widget;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
 
 /**
@@ -20,12 +21,8 @@ public class home {
     public String EST_Clock(){
          ZoneId tz = ZoneId.of("America/New_York");
          ZonedDateTime current_time = ZonedDateTime.now(tz);
-         String now = current_time.toString();
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+         String now = current_time.format(formatter);
          return now;
     } 
-    
-    //Just a test
-    public static void Hello(){
-        System.out.println();
-    }
 }

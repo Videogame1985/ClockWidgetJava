@@ -6,10 +6,13 @@ package com.mycompany.clock_widget;
 import java.awt.BorderLayout;
 import java.util.TimeZone;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.time.ZonedDateTime;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import java.awt.MouseInfo;
+import java.awt.Point;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -19,6 +22,12 @@ public class Clock_Widget {
 
     public static void main(String[] args) {
         //1. Create the frame.
+        
+        Point mouseLocation = MouseInfo.getPointerInfo().getLocation();
+        
+        int x = mouseLocation.x;
+        int y = mouseLocation.y;
+        
         JFrame frame = new JFrame("Clock");
         
         frame.setPreferredSize(new Dimension(800, 600));        
@@ -34,19 +43,19 @@ public class Clock_Widget {
         frame.setVisible(true);
         
         home digital_clock_widget = new home();
- 
-        JLabel label = new JLabel();
-        
-        label.setText(digital_clock_widget.EST_Clock());
-        
-        frame.add(label, BorderLayout.CENTER);
         
         frame.setLocationRelativeTo(null);
-        
-        frame.setVisible(true);
-        
-        frame.repaint();
-        
+ 
+        JLabel label = new JLabel("Centered Text",SwingConstants.CENTER);
+        while(true){
+            label.setText(digital_clock_widget.EST_Clock());
+            
+            label.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+
+            frame.add(label);
+
+            frame.setVisible(true);
+        }
     }
 
 
