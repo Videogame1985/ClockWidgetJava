@@ -17,10 +17,11 @@ import java.util.TimeZone;
  */
 public class home {
     //
-    public static void EST_Clock(){
+    public String EST_Clock(){
          ZoneId tz = ZoneId.of("America/New_York");
          ZonedDateTime current_time = ZonedDateTime.now(tz);
-         System.out.println(current_time);
+         String now = current_time.toString();
+         return now;
     } 
     
     //Just a test

@@ -3,9 +3,12 @@
  */
 
 package com.mycompany.clock_widget;
+import java.awt.BorderLayout;
 import java.util.TimeZone;
 import java.awt.Dimension;
+import java.time.ZonedDateTime;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 
 /**
@@ -30,10 +33,21 @@ public class Clock_Widget {
         //5. Show it.
         frame.setVisible(true);
         
-        
         home digital_clock_widget = new home();
+ 
+        JLabel label = new JLabel();
         
-        digital_clock_widget.EST_Clock();
+        label.setText(digital_clock_widget.EST_Clock());
+        
+        frame.add(label, BorderLayout.CENTER);
+        
+        frame.setLocationRelativeTo(null);
+        
+        frame.setVisible(true);
+        
+        frame.repaint();
         
     }
+
+
 }
